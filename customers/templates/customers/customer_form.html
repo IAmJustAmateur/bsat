@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load bootstrap3 %}
+
+
+{% block body_block %}
+    <h3>Новый Заказчик</h3>
+    <form action="{% url 'customers:create' %}" method="POST">
+        {% csrf_token %}
+        {{ form }}
+        <!-- <label for="customer_name">Наименование</label>
+        <input type="text" id="customer_name" placeholder="Наименование" required>
+
+        <label for="customer_short_name">Наименование Краткое</label>
+        <input type="text" id="customer_short_name" placeholder="Наименование Краткое">
+
+        <label for="customer_full_name">Наименование Полное</label>
+        <input type="text" id="customer_full_name" placeholder="Наименование Полное">
+        <br> -->
+
+
+        <input type="submit" class = 'btn btn-primary btn-large' value="Создать">
+
+    </form>
+{% endblock body_block %}
+
+    

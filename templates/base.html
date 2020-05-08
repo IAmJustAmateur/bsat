@@ -6,7 +6,7 @@
     <title>BSAT</title>
 </head>
 <body>
-    <nav  class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav  class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
             <ul class = "navbar-nav">
                 <li><a class="navbar-brand" href="#">BSAT</a></li>
@@ -15,13 +15,15 @@
                 </li>
                 
                 {% if user.is_authenticated %}
-                    <li><a href="#">Журнал моек</a></li>
-                    <li><a href="#">Сертитфикаты</a></li>
-                    <li><a href="#">Акты и счета</a></li>
+                    <li><a class="nav-link" href="#">Журнал моек</a></li>
+                    <li><a class="nav-link" href="#">Сертитфикаты</a></li>
+                    <li><a class="nav-link" href="#">Акты и счета</a></li>
+                    <li><a class="nav-link" href="{% url 'customers:all' %}">Заказчики</a></li>
+                    <li><a class="nav-link" href="{% url 'logout' %}">Log Out</a></li>
 
                 {% else %}
-                    <li><a href="{% url 'accounts:login' %}">Log In</a></li>
-                    <li><a href="{% url 'accounts:signup' %}">Sign Up</a></li>
+                    <li><a class="nav-link" href="{% url 'accounts:login' %}">Log In</a></li>
+                    <li><a class="nav-link" href="{% url 'accounts:signup' %}">Sign Up</a></li>
                 {% endif %}
                     
 

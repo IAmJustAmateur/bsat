@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse, resolve
 
 # Create your models here.
 
@@ -23,7 +24,7 @@ class Customer(models.Model):
 
     # contract
     contract_num = models.CharField(max_length=10, blank=True)
-    contract_date = models.DateField(blank=True)
+    contract_date = models.DateField(blank=True, null=True)
 
     # director
     director_name = models.CharField(max_length=120, blank=True)
@@ -40,6 +41,9 @@ class Customer(models.Model):
 
     # other info
     other_info = models.CharField(max_length=255, blank=True)
+
+    def get_absolute_url(self):
+        return reverse("customers:all")
 
 
 

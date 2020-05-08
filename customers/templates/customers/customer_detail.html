@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+
+{% block body_block %}
+<div class ='jumbotron'>
+    <h1>Сведения о Заказчике</h1>
+    <p>Наименование: {{customer.name}} </p>
+    <p>Наименование краткое: {{customer.short_name}} </p>
+    <p>Наименование полное: {{customer.full_name}} </p>
+</div>
+
+    
+{% endblock body_block %}
+
+    

@@ -26,4 +26,8 @@ urlpatterns = [
     path('thanks/', views.ThanksPage.as_view(), name='thanks'),
     path('accounts/', include('accounts.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
+    path('customers/',include('customers.urls', 'customers')),
+    path('orders/',include('orders.urls','orders')),
+    path('sertificates/',include('sertificates.urls','sertificates')),
+    path('invoices/',include('invoices.urls','invoices')),
 ]
