@@ -3,8 +3,9 @@
 
 {% block body_block %}
 <div class ='jumbotron'>
-    <h1>Сведения о Заказчике</h1>
-    <p>Наименование: {{customer.name}} </p>
+    <h1>Сведения о Заказчике {{customer_detail.name}} </h1>
+    <!-- <p>Наименование: {{customer_detail.name}} </p> -->
+    <p>Наименование краткое: {{customer_detail.short_name}} </p>
 </div>
 
     

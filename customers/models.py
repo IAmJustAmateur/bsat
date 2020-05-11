@@ -5,16 +5,16 @@ from django.urls import reverse, resolve
 
 class Customer(models.Model):
     # name
-    name = models.CharField(max_length = 120, blank=True)
-    short_name = models.CharField(max_length = 120)
-    full_name = models.CharField(max_length = 120, blank=True)
+    name = models.CharField(max_length = 120, blank=True, verbose_name='Наименование', unique=True)
+    short_name = models.CharField(max_length = 120, verbose_name='Наименование Краткое', unique=True)
+    full_name = models.CharField(max_length = 120, blank=True, verbose_name='Наименование Полное', unique=True)
 
     # address
-    legal_address = models.CharField(max_length=255, blank=True)
-    post_address = models.CharField(max_length=255, blank=True)
+    legal_address = models.CharField(max_length=255, blank=True, verbose_name='Адрес Юридический')
+    post_address = models.CharField(max_length=255, blank=True, verbose_name='Адрес Почтовый')
 
     # tax id
-    tax_id = models.CharField(max_length=30, blank=True)
+    tax_id = models.CharField(max_length=30, blank=True, verbose_name='УНП', unique=True)
 
     # bank details
     bank  = models.CharField(max_length=100, blank=True)
@@ -43,7 +43,10 @@ class Customer(models.Model):
     other_info = models.CharField(max_length=255, blank=True)
 
     def get_absolute_url(self):
-        return reverse("customers:all")
+        return reverse("customers:customer_list")
+
+    def __str__(self):
+        return self.name
 
 
 

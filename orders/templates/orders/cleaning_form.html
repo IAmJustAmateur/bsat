@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+<h1>Заказ наряд<h1>
+{% block body_block %}
+
+    <form action="{% url 'orders:create' %}" method="POST" id='cleaningForm'>
+        {% csrf_token %}
+        {{ form.as_p }}
+        
+        <input type="submit" class = 'btn btn-primary btn-large' value="Создать">
+
+    </form>
+    
+{% endblock body_block %}

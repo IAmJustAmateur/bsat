@@ -4,9 +4,13 @@
 <div class='container'>
     
     <h1>Заказчики</h1>
+
+    <form action="{% url 'customers:create' %}">
+        <input type="submit" class = 'btn btn-primary btn-large' value="Добавить">
+    </form>
     
     {% for customer in customer_list %}
-        <h3><a href="{% url 'customer_detail' pk=customer.pk %}">{{customer.short_name}}</a></h3>
+        <h3><a href="{% url 'customers:customer_detail' pk=customer.pk %}">{{customer.short_name}}</a></h3>
     {% empty %}
         <h3>База Заказчиков пуста</h3>
     {% endfor %}

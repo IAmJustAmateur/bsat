@@ -5,7 +5,7 @@
 <form method="post">
   {% csrf_token %}
   <input type="submit" class='btn btn-danger' value="Delete">
-  <a class = 'btn btn-secondary' href="{% url 'customer:detail' pk=customer.pk %}">Отмена</a>
+  <a class = 'btn btn-secondary' href="{% url 'customers:customer_detail' pk=customer.pk %}">Отмена</a>
 </form>
 
 {% endblock %}

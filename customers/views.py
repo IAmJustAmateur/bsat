@@ -7,7 +7,7 @@ from django.views.generic import (View, TemplateView, ListView,
 
 # Create your views here.
 class CustomerListView(ListView):
-    context_object_name='customers'
+    context_object_name='customer_list'
     model = Customer
 
 class CustomerDetailView(DetailView):
@@ -24,6 +24,6 @@ class CustomerUpdateView(UpdateView):
 
 class CustomerDeleteView(DeleteView):
     model = Customer
-    success_url = reverse_lazy("customers:list")
+    success_url = reverse_lazy("customers")
 
 

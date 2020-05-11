@@ -18,7 +18,17 @@
                     <li><a class="nav-link" href="#">Журнал моек</a></li>
                     <li><a class="nav-link" href="#">Сертитфикаты</a></li>
                     <li><a class="nav-link" href="#">Акты и счета</a></li>
-                    <li><a class="nav-link" href="{% url 'customers:all' %}">Заказчики</a></li>
+                    <li><a class="nav-link" href="{% url 'customers:customer_list' %}">Заказчики</a></li>
+                    <!-- <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Заказчики
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                          <a class="dropdown-item" href="#">Список</a>8                        </div>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="#">Добавить</a>
+                          </div>
+                      </li> -->
                     <li><a class="nav-link" href="{% url 'logout' %}">Log Out</a></li>
 
                 {% else %}
