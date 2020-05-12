@@ -7,7 +7,7 @@ class Customer(models.Model):
     # name
     name = models.CharField(max_length = 120, blank=True, verbose_name='Наименование', unique=True)
     short_name = models.CharField(max_length = 120, verbose_name='Наименование Краткое', unique=True)
-    full_name = models.CharField(max_length = 120, blank=True, verbose_name='Наименование Полное', unique=True)
+    full_name = models.CharField(max_length = 120, blank=True, verbose_name='Наименование Полное')
 
     # address
     legal_address = models.CharField(max_length=255, blank=True, verbose_name='Адрес Юридический')

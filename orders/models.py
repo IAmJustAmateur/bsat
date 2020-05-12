@@ -1,5 +1,6 @@
 from django.db import models
 from django.urls import reverse, resolve
+from django.core.validators import MaxValueValidator
 
 from customers.models import Customer
 
@@ -29,7 +30,15 @@ class Cleaning(models.Model):
 
     steaming = models.TimeField(verbose_name='пропарка, ч')
 
-    add_work = models.ForeignKey(Add_work, on_delete = models.CASCADE, blank=True, null=True)
+    add_work = models.ForeignKey(Add_work, on_delete = models.CASCADE, blank=True, null=True, verbose_name = 'Доп работы')
+
+    #sections
+    sec1 = models.FloatField(default=0, validators=[MaxValueValidator(40)], max_length=5)
+    sec2 = models.FloatField(default=0, validators=[MaxValueValidator(40)], max_length=5)
+    sec3 = models.FloatField(default=0, validators=[MaxValueValidator(40)], max_length=5)
+    sec4 = models.FloatField(default=0, validators=[MaxValueValidator(40)], max_length=5)
+    sec5 = models.FloatField(default=0, validators=[MaxValueValidator(40)], max_length=5)
+    sec6 = models.FloatField(default=0, validators=[MaxValueValidator(40)], max_length=5)
 
 
     
