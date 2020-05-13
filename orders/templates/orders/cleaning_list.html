@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block body_block %}
+<div class='container'>
+    
+    <h1>Журнал моек</h1>
+
+    <form action="{% url 'orders:create' %}">
+        <input type="submit" class = 'btn btn-primary btn-large' value="Добавить">
+    </form>
+    
+    {% for order in order_list %}
+        <h3><a href="{% url 'orders:order_detail' pk=order.pk %}">{{order.customer_name}}</a></h3>
+    {% empty %}
+        <h3> Журнал моек пуст</h3>
+    {% endfor %}
+       
+
+</div>
+    
+{% endblock body_block %}

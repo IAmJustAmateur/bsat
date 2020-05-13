@@ -13,9 +13,21 @@ class Driver(models.Model):
 class Add_work(models.Model):
     work = models.TextField(max_length = 120)
 
+class Car_Num(models.Model):
+    num = models.TextField(max_length=10)
+
+class Car_Type(models.Model):
+    car_type = models.TextField(max_length=30)
+
+class Tank_Num(models.Model):
+    num = models.TextField(max_length=15)
+
+class Trail_Type(models.Model):
+    trail_type = models.TextField(max_length=30)
+
 class Cleaning(models.Model):
     customer_name = models.ForeignKey(Customer, on_delete = models.CASCADE, verbose_name = 'Заказчик')
-    cleaning_date_start = models.DateField(verbose_name = 'Дата')
+    cleaning_date_start = models.DateField(verbose_name = 'Дата',auto_now=True)
     cleaning_date_end = models.DateField(verbose_name = 'Дата окончания')
     cleaning_time_start = models.TimeField(verbose_name = 'Время начала')
     cleaning_time_end = models.TimeField(verbose_name = 'Время окончания')
@@ -25,6 +37,13 @@ class Cleaning(models.Model):
     driver_name = models.ForeignKey(Driver, on_delete = models.CASCADE, verbose_name = 'Водитель', blank=True)
     
     external_cleaning = models.BooleanField(verbose_name = 'Наружная мойка')
+
+    car_type = models.ForeignKey(Car_Type, on_delete = models.CASCADE, null=True, blank = True)
+    car_num = models.ForeignKey(Car_Num, on_delete=models.CASCADE, verbose_name = 'Номер машины', null=True, blank = True)
+    
+    trail_type = models.ForeignKey(Trail_Type, on_delete = models.CASCADE, blank = True, null = True)
+    tank_num = models.ForeignKey(Tank_Num, on_delete=models.CASCADE, verbose_name = 'Номер полуприцепа/контейнера',  blank = True, null = True)
+
 
     internal_cleaning = models.BooleanField(verbose_name = 'Внутренняя мойка цистерны')
 
