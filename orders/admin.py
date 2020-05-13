@@ -1,9 +1,9 @@
 from django.contrib import admin
 
-from . models import (Cleaning, Team, Driver, Add_work, Car_Num, Car_Type, Trail_Type, Tank_Num)
+from . models import (Order, Team, Driver, Add_work, Car_Num, Car_Type, Trail_Type, Tank_Num)
 # Register your models here.
 
-admin.site.register(Cleaning)
+admin.site.register(Order)
 admin.site.register(Team)
 admin.site.register(Driver)
 admin.site.register(Add_work)

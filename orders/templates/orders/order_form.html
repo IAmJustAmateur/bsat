@@ -1,8 +1,59 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
+<h1>Заказ-наряд<h1>
+{% block body_block %}
 
-<form action="">
-    <label for="customer_name">Наименование Заказчика</label>
-    <input type="text" id="customer_name" placeholder='Заказчик' required>
-    <label for="work_date">Дата</label>
-    <input type="date" id='work_date' required>
-</form>
+    {% comment %} <form action="{% url 'orders:create' %}" method="POST" id='cleaningForm'>
+        {% csrf_token %}
+        {{ form.non_field_errors }}
+        <h2>Заказ наряд</h2>
+        <p>
+            <label for="id_cleaning_date_start">Дата</label>
+            <input type="date" id="id_cleaning_date_start" name="cleaning_date_start">
+            {{form.team}}
+            {{form.customer_name}}
+            {{form.driver}}
+        </p>
+        <hr>
+        <p>
+            <label for="id_external_cleaning">Наружная мойка</label>
+            <input type="checkbox" id="id_external_cleaning" name="external_cleaning">
+            {{form.car_type}}
+            {{form.car_num}}
+            {{form.tank_num}}
+        </p>
+        <hr>
+        <label for="id_internal_cleaning">Внутренняя мойка цистерны</label>
+        <input type="checkbox" id="id_internal_cleaning" name="internal_cleaning">
+        <h6>Очищаемые секции, объем</h6>
+        <table>
+            <tr>
+                <td>
+                    {{form.sec1}}
+                </td>
+                <td>
+                    {{form.sec2}}
+                </td>
+                <td>
+                    {{form.sec3}}
+                </td>
+                <td>
+                    {{form.sec4}}
+                </td>
+                <td>
+                    {{form.sec5}}
+                </td>
+                <td>
+                    {{form.sec6}}
+                </td>
+            </tr>
+        </table>
+        <input type="submit" class = 'btn btn-primary btn-large' value="Сохранить">
+    </form> {% endcomment %}
+
+    <form action="{% url 'orders:create' %}" method="POST" id='orderForm'>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" class = 'btn btn-primary btn-large' value="Сохранить">
+    </form>
+    
+{% endblock body_block %}

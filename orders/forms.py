@@ -1,10 +1,10 @@
 from django import forms
-from . models import (Cleaning, Add_work, Team, Driver)
+from . models import (Order, Add_work, Team, Driver)
 
-class CleaningForm(forms.ModelForm):
+class OrderForm(forms.ModelForm):
     class Meta:
         fields ='__all__'
-        model = Cleaning
+        model = Order
 
 class Add_work_Form(forms.ModelForm):
     class Meta:
