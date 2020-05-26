@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+<h1>ORDER LIST<h1>
+{% block body_block %}
+
+<form action="{% url 'test_orders:create' %}">
+        <input type="submit" class = 'btn btn-primary btn-large' value="Добавить">
+</form>
+
+<div class='tableFixHead'>
+    {% if test_order_list %}
+        <table>
+            <tr>
+                <th width= 30>Номер</th>
+                <th width= 70>Дата</th>
+                <th>Заказчик</th>
+                <th width= 30>Объем</th>           
+            </tr>
+            
+            {% for test_order in test_order_list %}
+                <tr>
+                    <td width= 30><a href="{% url 'test_orders:test_order_detail' pk=test_order.pk %}"> {{test_order.pk}}</a></td>
+                    <td width= 70>{{test_order.cleaning_date_start}}</td>
+                    <td><a href="{% url 'customers:customer_detail' pk=test_order.customer_name.pk %}">{{test_order.customer_name}}</a></td>
+                    <td width= 30>{{test_order.volume}}</td>
+                                       
+                </tr>
+                
+                {% comment %} {{order}} {% endcomment %}
+            {% empty %}
+                <h3> Тестовый Журнал моек пуст> <h3>
+            {% endfor %}
+            
+        </table>
+    
+    {% else %}
+        <h3> Тестовый Журнал пуст <h3>
+    {% endif %}
+        
+</div>
+       
+
+{% endblock %}

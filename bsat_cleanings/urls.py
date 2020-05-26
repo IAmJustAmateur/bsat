@@ -15,7 +15,6 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-#from  bsat_cleanings.views import HomePage, TestPage, ThanksPage
 from . import views
 from django.conf import settings
 
@@ -30,4 +29,7 @@ urlpatterns = [
     path('orders/',include('orders.urls','orders')),
     path('sertificates/',include('sertificates.urls','sertificates')),
     path('invoices/',include('invoices.urls','invoices')),
+    path('salaries/', include('salaries.urls', 'salaries')),
+    path('test_orders/',include('test_orders.urls','test_rders')),
+
 ]

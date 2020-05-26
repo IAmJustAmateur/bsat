@@ -1,7 +1,11 @@
+<!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% comment %} <link rel="stylesheet" href="bsat_cleanings/static/bsat_cleanings/css/base.css"> {% endcomment %}
+    <link rel="stylesheet" href= "{% static 'bsat_cleanings/css/base.css' %}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <title>BSAT</title>
 </head>
@@ -15,20 +19,29 @@
                 </li>
                 
                 {% if user.is_authenticated %}
-                    <li><a class="nav-link" href="{% url 'orders:order_list' %}">Журнал моек</a></li>
-                    <li><a class="nav-link" href="#">Сертитфикаты</a></li>
-                    <li><a class="nav-link" href="#">Акты и счета</a></li>
-                    <li><a class="nav-link" href="{% url 'customers:customer_list' %}">Заказчики</a></li>
-                    <!-- <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          Заказчики
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                          <a class="dropdown-item" href="#">Список</a>8                        </div>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="#">Добавить</a>
-                          </div>
-                      </li> -->
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <li><a class="nav-link" href="{% url 'orders:order_list' %}">Журнал моек</a></li>
+                        <li><a class="nav-link" href="{% url 'test_orders:test_order_list' %}">Тестовый журнал</a></li>
+                        <li><a class="nav-link" href="#">Сертитфикаты</a></li>
+                        <li><a class="nav-link" href="#">Акты и счета</a></li>
+                        <li><a class="nav-link" href="{% url 'customers:customer_list' %}">Заказчики</a></li>
+                        <li class="dropdown">
+                            <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Справочники</a>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                <a class="dropdown-item" href="#">Смены</a>
+                                <a class="dropdown-item" href="#">Номера автомобилей</a>
+                                <a class="dropdown-item" href="#">Виды работ</a>
+                                <a class="dropdown-item" href="#">Водители</a>
+                                 <a class="dropdown-item" href="#">Продукты</a>                             
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">Моющие средства</a>
+                            </div>
+                        </li>
+                        <li><a class="nav-link" href="#">Отчеты</a></li>
+                        <li><a class="nav-link" href="#">Зарплата</a></li>
+                    </div>
+
+                    
                     <li><a class="nav-link" href="{% url 'logout' %}">Log Out</a></li>
 
                 {% else %}
@@ -51,4 +64,7 @@
     </div>
 
 </body>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 </html>

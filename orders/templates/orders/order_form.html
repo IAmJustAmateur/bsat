@@ -6,15 +6,19 @@
         {% csrf_token %}
         {{ form.non_field_errors }}
         <h2>Заказ наряд</h2>
-        <p>
+        <fieldset>
             <label for="id_cleaning_date_start">Дата</label>
             <input type="date" id="id_cleaning_date_start" name="cleaning_date_start">
-            {{form.team}}
-            {{form.customer_name}}
-            {{form.driver}}
-        </p>
+            <label for="id_team">Смена</label>
+            <input type="text" id="id_team" name="team">
+            <label for="id_customer_name">Наименование Заказчика</label>
+            {{order.customer_name}}
+            <input type="text" id="id_customer_name" name="customer_name">
+            <label for="id_driver">Заказчик</label>
+            <input type="text" id="id_driver" name="driver">
+        </fieldset>
         <hr>
-        <p>
+         <p>
             <label for="id_external_cleaning">Наружная мойка</label>
             <input type="checkbox" id="id_external_cleaning" name="external_cleaning">
             {{form.car_type}}
@@ -24,7 +28,7 @@
         <hr>
         <label for="id_internal_cleaning">Внутренняя мойка цистерны</label>
         <input type="checkbox" id="id_internal_cleaning" name="internal_cleaning">
-        <h6>Очищаемые секции, объем</h6>
+        <h6>Очищаемые секции, объем</h6> 
         <table>
             <tr>
                 <td>
@@ -51,9 +55,13 @@
     </form> {% endcomment %}
 
     <form action="{% url 'orders:create' %}" method="POST" id='orderForm'>
+    {% comment %} группировать по fieldset {% endcomment %}
         {% csrf_token %}
-        {{ form.as_p }}
+        {% comment %} {{ form.as_p }} {% endcomment %}
+        <label>Имя заказчика</label>
+        {{order.customer_name}}
+        <input type="text" id="id_customer_name" name="customer_name">
         <input type="submit" class = 'btn btn-primary btn-large' value="Сохранить">
-    </form>
+    </form> 
     
 {% endblock body_block %}

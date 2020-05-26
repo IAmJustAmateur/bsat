@@ -46,6 +46,8 @@ INSTALLED_APPS = [
     'orders',
     'sertificates',
     'invoices',
+    'test_orders',
+    't_order_bot',
 ]
 
 MIDDLEWARE = [

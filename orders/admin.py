@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from . models import (Order, Team, Driver, Add_work, Car_Num, Car_Type, Trail_Type, Tank_Num)
+from . models import (Order, Team, Driver, Add_work, Car_Num, Car_Type, Trail_Type, Tank_Num, Product, Order_registry)
 # Register your models here.
 
 admin.site.register(Order)
@@ -11,4 +11,8 @@ admin.site.register(Car_Num)
 admin.site.register(Car_Type)
 admin.site.register(Trail_Type)
 admin.site.register(Tank_Num)
+admin.site.register(Product)
+admin.site.register(Order_registry)
+
+
 

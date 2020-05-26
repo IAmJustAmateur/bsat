@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+<h1>ORDER<h1>
+{% block body_block %}
+
+
+<form action="{% url 'test_orders:create' %}" method="POST" id='test_orderForm'>
+    {% csrf_token %}
+    <label>Order #</label>
+    {% comment %} {{form.as_p}} {% endcomment %}
+    <p>
+        <label>Заказчик</label>
+        {{form.customer_name}}
+        <label>Дата</label>
+        {{form.cleaning_date_start}}
+    </p> 
+    <p>
+        <label>Объем</label>
+        {{form.volume}}
+    </p>
+   
+    <input type="submit" class = 'btn btn-primary btn-large' value="Сохранить">
+</form> 
+    
+
+
+{% endblock %}

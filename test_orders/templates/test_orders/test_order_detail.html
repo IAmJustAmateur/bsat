@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+
+{% block body_block %}
+<div class ='jumbotron'>
+
+    <form action="{% url 'test_orders:update' pk=test_order_detail.pk %}">
+        <input type="submit" class = 'btn btn-primary btn-large' value="Изменить">
+    </form>
+    <h3>Test Order #  {{test_order_detail.pk}} </h3>
+    <p>
+        Заказчик: <a href="{% url 'customers:customer_detail' test_order_detail.customer_name.pk %}"> {{test_order_detail.customer_name}} </a>
+        {% comment %} Заказчик: {{test_order_detail.customer_name}}  {% endcomment %}
+        Дата: {{test_order_detail.cleaning_date_start}}
+        Объем: {{test_order_detail.volume}}
+    </p>
+
+    
+</div>
+
+    
+{% endblock body_block %}

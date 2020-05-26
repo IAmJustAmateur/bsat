@@ -3,12 +3,32 @@
 
 {% block body_block %}
 <div class ='jumbotron'>
-    <h1>Сведения о Заказчике {{customer_detail.name}} </h1>
-    <!-- <p>Наименование: {{customer_detail.name}} </p> -->
-    <p>Наименование краткое: {{customer_detail.short_name}} </p>
+
+     <form action="{% url 'customers:update' pk=customer_detail.pk %}">
+        <input type="submit" class = 'btn btn-primary btn-large' value="Изменить">
+    </form>
+
+    {% comment %} Заменить на Update ??? {% endcomment %}
+    <h2>Сведения о Заказчике <i>{{customer_detail.name}}</i> </h2>
+    <p>Наименование краткое: {{customer_detail.short_name}}</p>
+    <p>Наименование полное: {{customer_detail.full_name}}</p>
+    <p>Юридический адрес: {{customer_detail.legal_address}}</p>
+    <p>УНП / ИНН / TAX ID: {{customer_detail.tax_id}}</p>
+    <p>Банк: {{customer_detail.bank}}</p>
+    <p>Счет / IBAN: {{customer_detail.bank_acc}}</p>
+    <p>БИК/SWIFT: {{customer_detail.bic}}</p>
+    <p>Адрес банка: {{customer_detail.bank_addr}}</p>
+    {% if customer_detail.contract_num %}
+        <p>Договор №: {{customer_detail.contract_num}} от {{customer_detail.contract_date}}</p>
+        <p>Директор: {{customer_detail.director_name}}</p>
+    {% endif %}
+    <h3>Контакты</h3>
+    {% if customer_detail.contact_name %}
+        <p>{{customer_detail.contact_name}}, {{customer_detail.contact_position}}</p>
+    {% endif %}
+    <p>телефон: {{customer_detail.phone}}, email: {{customer_detail.email}}</p>
 </div>
 
-    
 {% endblock body_block %}
 
     

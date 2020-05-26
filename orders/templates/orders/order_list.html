@@ -8,12 +8,68 @@
     <form action="{% url 'orders:create' %}">
         <input type="submit" class = 'btn btn-primary btn-large' value="Добавить">
     </form>
-    
-    {% for order in order_list %}
-        <h3><a href="{% url 'orders:order_detail' pk=order.pk %}">{{order.customer_name}}</a></h3>
-    {% empty %}
-        <h3> Журнал моек пуст</h3>
-    {% endfor %}
+      <div class='tableFixHead'>
+        <table>
+            <tr>
+                <th>Номер</th>
+                <th>Дата</th>
+                <th>Смена</th>
+                <th>Заказчик</th>
+                <th>Водитель</th>
+                <th>Наружная мойка</th>
+                <th>Тип машины</th>
+                <th>Номер машины</th>
+                <th>Тип прицепа/полуприцепа</th>  
+                <th>Номер</th>
+                <th>Внутренняя мойка</th>
+                <th>1</th>
+                <th>2</th>
+                <th>3</th>
+                <th>4</th>
+                <th>5</th>
+                <th>6</th>
+                <th>Пропарка</th>
+                <th>Дезинфекция</th>
+                <th>Доп работы</th>
+                <th>Время начала</th>
+                <th>Время окончания</th>
+            </tr>
+            
+            {% for order in order_list %}
+                <tr>
+                    <td>{{order.pk}}</td>
+                    <td>{{order.cleaning_date_start}}</td>
+                    <td>{{order.team}}</td>
+                    <td>{{order.customer_name}}</td>
+                    <td>{{order.driver_name}}</td>
+                    <td>{{order.external_cleaning}}</td>
+                    <td>{{order.car_type}}</td>
+                    <td>{{order.car_num}}</td>
+                    <td>{{order.trail_type}}</td>
+                    <td>{{order.trail_num}}</td>
+                    <td>{{order.internal_cleaning}}</td>
+                    <td>{{order.sec1}}</td>
+                    <td>{{order.sec2}}</td>
+                    <td>{{order.sec3}}</td>
+                    <td>{{order.sec4}}</td>
+                    <td>{{order.sec5}}</td>
+                    <td>{{order.sec6}}</td>
+                    <td>{{order.steaming}}</td>
+                    <td>{{order.desinfection}}</td>
+                    <td>{{order.add_work}}</td>
+                    <td>{{order.cleaning_time_start}}</td>
+                    <td>{{order.cleaning_time_end}}</td>
+                </tr>
+                {% comment %} <h5><a href="{% url 'orders:order_detail' pk=order.pk %}"></h5>{{order.pk}}: </a> {% endcomment %}
+                {% comment %} вставить таблицу {% endcomment %}
+                {% comment %} {{order.cleaning_date_start}} {{order.customer_name}} {{order.team}}  {{order.car_num}} {% endcomment %}
+                {% comment %} {{order}} {% endcomment %}
+            {% empty %}
+                <h3> Журнал моек пуст</h3>
+            {% endfor %}
+            
+        </table>
+      </div>
        
 
 </div>

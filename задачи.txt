@@ -1,0 +1,8 @@
+сделать тестовую HTML страницу для orders
+форму для Customers, используя ModelChoiceFields
+и тестовую базу для orders, куда записывать результаты
+Update orders и 
+customers
+populate orders
+таблицы css
+Telegram bot

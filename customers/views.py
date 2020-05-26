@@ -21,6 +21,7 @@ class CustomerCreateView(CreateView):
 class CustomerUpdateView(UpdateView):
     model = Customer
     fields = '__all__'
+    template_name_suffix = '_update_form'
 
 class CustomerDeleteView(DeleteView):
     model = Customer
