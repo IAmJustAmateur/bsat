@@ -30,6 +30,7 @@ urlpatterns = [
     path('sertificates/',include('sertificates.urls','sertificates')),
     path('invoices/',include('invoices.urls','invoices')),
     path('salaries/', include('salaries.urls', 'salaries')),
-    path('test_orders/',include('test_orders.urls','test_rders')),
+    path('test_orders/',include('test_orders.urls','test_orders')),
+    path ('t_order_bot/', include('t_order_bot.urls','t_order_bot')),
 
 ]
